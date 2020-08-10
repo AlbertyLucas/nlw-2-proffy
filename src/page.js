@@ -1,6 +1,6 @@
 const Database = require('./database/db')
 
-const { subject, weekday, getSubject, converHoursToMinutes } = require('./util/format')
+const { subjects, weekdays, getSubject, converHoursToMinutes } = require('./util/format')
 
 function pageLanding(req, res) {
     return res.render("index.html")
@@ -8,8 +8,8 @@ function pageLanding(req, res) {
 async function pageStudy(req, res) {
     const filter = req.query
 
-    if (!filter.subject || !filter.weekday || !filter.time) {
-        return res.render("study.html", { filter, subject, weekday })
+    if (!filter.subjects || !filter.weekdays || !filter.time) {
+        return res.render("study.html", { filter, subjects, weekdays })
 
     }
 
@@ -23,22 +23,22 @@ async function pageStudy(req, res) {
             SELECT class_schedule.*
             FROM class_schedule
             WHERE class_schedule.class_id = class.id
-            AND class_schedule.weekday = ${filter.weekday}
+            AND class_schedule.weekdays = ${filter.weekdays}
             AND class_schedule.time_from <= ${timeToMinute}
             AND class_schedule.time_to > ${timeToMinute}
         )
 
-        AND class.subject = '${filter.subject}'
+        AND class.subject = '${filter.subjects}'
     `
     try {
         const db = await Database
         const proffy = await db.all(query)
 
         proffy.map((proffy) => {
-            proffy.subject = getSubject(proffy.subject)
+            proffy.subjects = getSubject(proffy.subjects)
         })
 
-        return res.render('study.html', { proffy, subject, filter, weekday })
+        return res.render('study.html', { proffy, subjects, filter, weekdays })
 
     } catch (error) {
         console.log(error)
@@ -47,7 +47,7 @@ async function pageStudy(req, res) {
 }
 
 function pageGiveClass(req, res) {
-    return res.render("give-class.html", { subject, weekday })
+    return res.render("give-class.html", { subjects, weekdays })
 }
 
 async function saveClass(req, res) {
@@ -61,13 +61,13 @@ async function saveClass(req, res) {
     }
 
     const classValue = {
-        subject: req.body.subject,
+        subject: req.body.subjects,
         cost: req.body.cost
     }
 
-    const classScheduleValues = req.body.weekday.map((weekday, index) => {
+    const classScheduleValues = req.body.weekdays.map((weekdays, index) => {
         return {
-            weekday,
+            weekdays,
             time_from: converHoursToMinutes(req.body.time_from[index]),
             time_to: converHoursToMinutes(req.body.time_from[index])
         }
@@ -78,8 +78,8 @@ async function saveClass(req, res) {
         const db = await Database
         await createProffy(db, { proffyValue, classValue, classScheduleValues })
 
-        let queryString = "?subject=" + req.body.subject
-        queryString += "&weekday=" + req.body.weekday[0]
+        let queryString = "?subjects=" + req.body.subjects
+        queryString += "&weekdays=" + req.body.weekdays[0]
         queryString += "&time=" + req.body.time_from[0]
 
         return res.redirect("/study" + queryString)

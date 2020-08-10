@@ -1,4 +1,4 @@
-const subject = [
+const subjects = [
     "Artes",
     " Biologia",
     "Ciências",
@@ -11,7 +11,7 @@ const subject = [
     "Química",
 ]
 
-const weekday = [
+const weekdays = [
     " Domingo",
     "Segunda-feira",
     "Terça-feira",
@@ -21,9 +21,9 @@ const weekday = [
     " Sábado",
 ]
 
-function getSubject(subjectNumber) {
-    const arrayPosition = +subjectNumber - 1
-    return subject[arrayPosition]
+function getSubjects(subjectsNumber) {
+    const arrayPosition = +subjectsNumber - 1
+    return subjects[arrayPosition]
 }
 function converHoursToMinutes(time) {
     const [hour, minute] = time.split(':')
@@ -31,8 +31,8 @@ function converHoursToMinutes(time) {
 }
 
 module.exports = {
-    subject,
-    weekday,
-    getSubject,
+    subjects,
+    weekdays,
+    getSubjects,
     converHoursToMinutes
 }
