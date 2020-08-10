@@ -64,12 +64,12 @@
     background: var(--color-primary-light);
 }
 
-.button-container a.give-classes {
+.button-container a.give-class {
     background: var(--color-secondary);
     margin-right: 0;
 }
 
-.button-container a.give-classes:hover {
+.button-container a.give-class:hover {
     background: var(--color-secondary-dark);
 }
 
