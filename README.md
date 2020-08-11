@@ -1,7 +1,8 @@
+
 # Project NLW-2 Rocketseat
 <p aling="center">
-<img src="public/images/logo.svg" alt="logotipo">
-<img src="public/images/landing.svg" alt="Pagina">
+    <img src="public/images/logo.svg" alt="logotipo" align="center">
+    <img src="public/images/landing.svg" alt="Pagina" align="center">
 </p>
 
 <h1 align="center">Sua plataforma de estudos on-line! 👋</h1>
@@ -13,7 +14,9 @@
 
 ## Install
 
-`yarn install` ou `npm install`
+`yarn install` 
+ou 
+`npm install`
 
 ## Usage
 `npm run dev`
