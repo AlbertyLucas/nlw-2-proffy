@@ -1,5 +1,5 @@
 # Project NLW-2 Rocketseat
-<img src="public/images/logo.svg" alt="logotipo">
+<img src="public/images/logo.svg" alt="logotipo" style="black">
 <img src="public/images/landing.svg" alt="Pagina">
 
 ## Sua plataforma de estudos on-line!
