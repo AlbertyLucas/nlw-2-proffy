@@ -1,6 +1,8 @@
 # Project NLW-2 Rocketseat
+<p aling="center">
 <img src="public/images/logo.svg" alt="logotipo">
 <img src="public/images/landing.svg" alt="Pagina">
+</p>
 
 <h1 align="center">Sua plataforma de estudos on-line! 👋</h1>
 
