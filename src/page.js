@@ -23,12 +23,12 @@ async function pageStudy(req, res) {
             SELECT classes_schedule.*
             FROM classes_schedule
             WHERE classes_schedule.class_id = class.id
-            AND classes_schedule.weekdays = ${filter.weekdays}
+            AND classes_schedule.weekdays = ${filters.weekdays}
             AND classes_schedule.time_from <= ${timeToMinute}
             AND classes_schedule.time_to > ${timeToMinute}
         )
 
-        AND classes.subjects = '${filter.subjects}'
+        AND classes.subjects = '${filters.subjects}'
     `
     try {
         const db = await Database
@@ -61,7 +61,7 @@ async function saveClass(req, res) {
     }
 
     const classesValue = {
-        subject: req.body.subjects,
+        subjects: req.body.subjects,
         cost: req.body.cost
     }
 

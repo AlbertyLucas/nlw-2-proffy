@@ -33,7 +33,7 @@
                                 <option value="" disabled="" hidden="">Selecione uma opção</option>
 
                                 {% for subject in subjects %}
-                                    <option value="{{loop.index}}" {{ "selected" if filter.subject == loop.index }}>
+                                    <option value="{{loop.index}}" {{ "selected" if filters.subjects == loop.index }}>
                                         {{ subject }}
                                     </option>
                                 {% endfor %}
@@ -46,7 +46,7 @@
                                 <option value="" disabled="" hidden="">Selecione uma opção</option>
 
                                 {% for weekday in weekdays %}
-                                    <option value="{{loop.index0}}" {{ "selected" if filter.weekday == loop.index0 }}>
+                                    <option value="{{loop.index0}}" {{ "selected" if filters.weekdays == loop.index0 }}>
                                         {{ weekday }}
                                     </option>
                                 {% endfor %}
@@ -55,7 +55,7 @@
                         </div>
                         <div class="input-block">
                             <label for="time">Hora</label>
-                            <input name="time" id="time" type="time" value="{{filter.time}}">
+                            <input name="time" id="time" type="time" value="{{filters.time}}">
                         </div>
                         <button type="submit">Filtrar</button>
                     </form>
@@ -78,7 +78,7 @@
                                 <img src="{{ proffy.avatar }}" alt="{{ proffy.name }}">
                                 <div>
                                     <strong>{{ proffy.name }}</strong>
-                                    <span>{{ proffy.subject }}</span>
+                                    <span>{{ proffy.subjects }}</span>
                                 </div>
                             </header>
 
