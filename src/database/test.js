@@ -12,13 +12,13 @@ Database.then(async (db) => {
 
     }
 
-    classValue = {
+    classesValue = {
         subject: 1,
         cost: "20",
         // o proffy_id vira pelo banco de dados
     }
 
-    classScheduleValues = [
+    classesScheduleValues = [
         // class_di virá pelo banco de dados, apos cadastrarmos a class
         {
             weekday: 1,
@@ -36,13 +36,13 @@ Database.then(async (db) => {
     // consultar os dados inseridos
 
     // todos os proffys
-    const selectproffy = await db.all("SELECT * FROM proffy")
+    const selectProffy = await db.all("SELECT * FROM proffy")
     // console.log(selectproffy)
 
     // consultar as classes de um determinado proffesor
     // e trazer junto  os dados do professor
     const selectClassAndProffy = await db.all(`
-        SELECT class.*, proffy.*
+        SELECT classes.*, proffy.*
         FROM proffy
         JOIN class ON (class.proffy_id = proffy.id)
         WHERE class.proffy_id = 1;
@@ -50,12 +50,12 @@ Database.then(async (db) => {
     // console.log(selectClassAndProffy)
 
     const selectClassSchedule = await db.all(`
-        SELECT class_schedule.*
-        FROM class_schedule
-        WHERE class_schedule.class_id = "1"
-        AND class_schedule.weekday = "0"
-        AND class_schedule.time_from <= "220"
-        AND class_schedule.time_to > "220"
+        SELECT classes_schedule.*
+        FROM classes_schedule
+        WHERE classes_schedule.class_id = "1"
+        AND classes_schedule.weekday = "0"
+        AND classes_schedule.time_from <= "220"
+        AND classes_schedule.time_to > "220"
     `)
     // console.log(selectClassSchedule)
 })

@@ -93,7 +93,7 @@
                                 <label for="weekday">Dia da semana</label>
                                 <select name="weekday[]" required="required">
 
-                                    {% for weekday in weekday %}
+                                    {% for weekday in weekdays %}
                                         <option value="{{loop.index0}}">
                                             {{weekday}}
                                         </option>

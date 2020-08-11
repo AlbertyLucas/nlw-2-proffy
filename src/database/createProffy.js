@@ -1,4 +1,4 @@
-module.exports = async function (db, { proffyValue, classValue, classScheduleValues }) {
+module.exports = async function (db, { proffyValue, classesValue, classesScheduleValues }) {
     // inserir dados da table de proff
     const insertedProffy = await db.run(`
         INSERT INTO proffy (
@@ -24,27 +24,27 @@ module.exports = async function (db, { proffyValue, classValue, classScheduleVal
                 cost,
                 proffy_id
             ) VALUES (
-                "${classValue.subject}",
-                "${classValue.cost}",
+                "${classesValue.subjects}",
+                "${classesValue.cost}",
                 "${proffy_id}"
             );
     `)
 
     const class_id = insertedClass.lastID
     // Inserir dados na tabela class_schedule
-    const insertAllclassScheduleValues = classScheduleValues.map((classScheduleValues) => {
+    const insertAllclassScheduleValues = classesScheduleValues.map((classesScheduleValues) => {
         // observar se deixa ou não co classSchedulevalue, com ou sem S
         return db.run(`
-            INSERT INTO class_schedule (
+            INSERT INTO classes_schedule (
                 class_id,
                 weekday,
                 time_from,
                 time_to
             ) VALUES (
                 "${class_id}",
-                "${classScheduleValues.weekday}",
-               " ${classScheduleValues.time_from}",
-                "${classScheduleValues.time_to}"
+                "${classesScheduleValues.weekdays}",
+               " ${classesScheduleValues.time_from}",
+                "${classesScheduleValues.time_to}"
             );
         `)
     })

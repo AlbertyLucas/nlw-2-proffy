@@ -12,17 +12,17 @@ function execute(db) {
         bio TEXT
     );
 
-    CREATE TABLE IF NOT EXISTS class (
+    CREATE TABLE IF NOT EXISTS classes (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        subject INTERGER,
+        subjects INTERGER,
         cost TEXT,
         proffy_id INTEGER
     );
 
-        CREATE TABLE IF NOT EXISTS class_schedule (
+        CREATE TABLE IF NOT EXISTS classes_schedules (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            class_id INTEGER,
-            weekday INTEGER,
+            classes_id INTEGER,
+            weekdays INTEGER,
             time_from INTEGER,
             time_to INTEGER
         );
