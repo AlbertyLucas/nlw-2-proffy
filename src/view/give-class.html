@@ -65,9 +65,9 @@
                             <select name="subject" id="subject" required="required">
                                 <option value="">Selecione uma opção</option>
 
-                                {% for subject in subjects %}
+                                {% for schoolSubject in subjects %}
                                     <option value="{{ loop.index }}">
-                                        {{subject}}
+                                        {{schoolSubject}}
                                     </option>
                                 {% endfor %}
 
@@ -93,9 +93,9 @@
                                 <label for="weekday">Dia da semana</label>
                                 <select name="weekday[]" required="required">
 
-                                    {% for weekday in weekdays %}
+                                    {% for weekly in weekdays %}
                                         <option value="{{loop.index0}}">
-                                            {{weekday}}
+                                            {{weekly}}
                                         </option>
                                     {% endfor %}
 

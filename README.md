@@ -1,13 +1,11 @@
-
 # Project NLW-2 Rocketseat
-<p aling="center">
-    <img src="public/images/logo.svg" alt="logotipo" align="center">
-    <img src="public/images/landing.svg" alt="Pagina" align="center">
+<p align="center">
+<img src="public/images/logo.svg" alt="logotipo" align="center">
+ <img src="public/images/landing.svg" alt="Pagina" align="center">
 </p>
 
-<h1 align="center">Sua plataforma de estudos on-line! 👋</h1>
+<h1 align="center">Sua plataforma de estudos on-line! </h1>
 
-<p align="center">
 
 ##  Um projeto que visa ajudar a alunos com dificuldade em determinadas matérias ou conhecimento, a encontrar um professor dedicado a ajuda-lo a aprender mais e com qualidade.
 
@@ -31,4 +29,3 @@ ou
 
 [Node.js](https://nodejs.org/en/) | [React](https://reactjs.org)  |  [Expo](https://expo.io/) | [JavaScript](https://javascript.com/) |
 
-</p>

@@ -19,7 +19,7 @@ module.exports = async function (db, { proffyValue, classesValue, classesSchedul
     // inserir dados na tabela class
 
     const insertedClass = await db.run(`
-            INSERT INTO class (
+            INSERT INTO classes (
                 subject,
                 cost,
                 proffy_id
