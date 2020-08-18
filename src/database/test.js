@@ -44,8 +44,8 @@ Database.then(async (db) => {
     const selectClassAndProffy = await db.all(`
         SELECT classes.*, proffy.*
         FROM proffy
-        JOIN class ON (class.proffy_id = proffy.id)
-        WHERE class.proffy_id = 1;
+        JOIN classes ON (classes.proffy_id = proffy.id)
+        WHERE classes.proffy_id = 1;
     `)
     // console.log(selectClassAndProffy)
 

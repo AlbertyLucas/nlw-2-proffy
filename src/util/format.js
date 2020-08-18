@@ -21,6 +21,8 @@ const weekdays = [
     " Sábado",
 ]
 
+// Declarar o arrayPosition ou somente Position faz diferença?
+
 function getSubjects(subjectsNumber) {
     const arrayPosition = +subjectsNumber - 1
     return subjects[arrayPosition]

@@ -1,4 +1,4 @@
-const Database = require('sqlite-async')
+const Database = require('sqlite-async');
 
 
 function execute(db) {
@@ -19,13 +19,13 @@ function execute(db) {
         proffy_id INTEGER
     );
 
-        CREATE TABLE IF NOT EXISTS classes_schedules (
+        CREATE TABLE IF NOT EXISTS classes_schedule (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             classes_id INTEGER,
             weekdays INTEGER,
             time_from INTEGER,
             time_to INTEGER
         );
-  `)
+  `);
 }
-module.exports = Database.open(__dirname + '/database.sqlite').then(execute)
+module.exports = Database.open(__dirname + '/database.sqlite').then(execute);

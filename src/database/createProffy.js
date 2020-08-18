@@ -14,7 +14,7 @@ module.exports = async function (db, { proffyValue, classesValue, classesSchedul
         );
     `)
 
-    const proffy_id = insertedProffy.lastID
+    const proffy_id = insertedProffy.lastID;
 
     // inserir dados na tabela class
 
@@ -28,12 +28,12 @@ module.exports = async function (db, { proffyValue, classesValue, classesSchedul
                 "${classesValue.cost}",
                 "${proffy_id}"
             );
-    `)
+    `);
 
     const class_id = insertedClass.lastID
     // Inserir dados na tabela class_schedule
     const insertAllclassScheduleValues = classesScheduleValues.map((classesScheduleValues) => {
-        // observar se deixa ou não co classSchedulevalue, com ou sem S
+
         return db.run(`
             INSERT INTO classes_schedule (
                 class_id,
@@ -52,6 +52,4 @@ module.exports = async function (db, { proffyValue, classesValue, classesSchedul
     await Promise.all(insertAllclassScheduleValues)
 }
 
-// DEPOIS ALBERTY VERIFICAR EM TODOS OS AQUIVOS AS AS PALAVRA
-// VALUE, PROFFY, CLASS, SCHEDULE, SUBJECT, COST, COM CTRL+F, POIS PODE DAR ALGO ERRADO
-// ENTÃO CORRIJA TODAS AS PALAVRAS CHAVE.
+// não declarar return, existe algum motivo?
